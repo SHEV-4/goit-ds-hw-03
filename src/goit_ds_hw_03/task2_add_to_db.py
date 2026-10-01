@@ -4,7 +4,7 @@ import json
 
 def connection():
     try:
-        client = MongoClient("mongodb+srv://shev:ShEv4UK@clusterstarted.5xwbbpm.mongodb.net/?retryWrites=true&w=majority&appName=ClusterStarted",server_api=ServerApi('1'))
+        client = MongoClient(os.environ["MONGODB_URI"],server_api=ServerApi('1'))
         return client
     except errors.ServerSelectionTimeoutError as err:
         print(err)
